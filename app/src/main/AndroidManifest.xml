@@ -15,7 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OutcomeActivity"></activity>
+
+        <activity android:name=".OutcomeActivity"
+            android:parentActivityName=".CalculatorActivity"
+            android:label="Hard for monkey-brains, easy for me"
+            >
+        </activity>
+
     </application>
 
 </manifest>

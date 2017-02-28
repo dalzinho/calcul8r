@@ -20,7 +20,7 @@ public class OutcomeActivity extends AppCompatActivity {
         Bundle extras = intent.getExtras();
         int answer = extras.getInt("add_outcome");
 
-        outcome.setText(answer);
+        outcome.setText(Integer.toString(answer));
     }
 
 }

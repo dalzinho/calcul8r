@@ -36,4 +36,38 @@ public class CalculatorActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+    public void onClickSubtractButton(View button){
+        int first = Integer.parseInt(firstNumber.getText().toString());
+        int second = Integer.parseInt(secondNumber.getText().toString());
+
+        Intent intent = new Intent(this, OutcomeActivity.class);
+        int outcome = calculator.subtract(first, second);
+        intent.putExtra("add_outcome", outcome);
+
+        startActivity(intent);
+    }
+
+    public void onClickMultiplyButton(View button){
+        int first = Integer.parseInt(firstNumber.getText().toString());
+        int second = Integer.parseInt(secondNumber.getText().toString());
+
+        Intent intent = new Intent(this, OutcomeActivity.class);
+        int outcome = calculator.multiply(first, second);
+        intent.putExtra("add_outcome", outcome);
+
+        startActivity(intent);
+    }
+
+    public void onClickPowerButton(View button){
+        int first = Integer.parseInt(firstNumber.getText().toString());
+        int second = Integer.parseInt(secondNumber.getText().toString());
+
+        Intent intent = new Intent(this, OutcomeActivity.class);
+        int outcome = calculator.findPower(first, second);
+        intent.putExtra("add_outcome", outcome);
+
+        startActivity(intent);
+    }
+
 }
