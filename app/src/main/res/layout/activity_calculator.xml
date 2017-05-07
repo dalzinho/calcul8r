@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/first_number"
         android:paddingBottom="50dp"
+        android:inputType="numberDecimal"
         />
 
     <EditText
@@ -25,11 +26,12 @@
         android:layout_height="wrap_content"
         android:hint="@string/second_number"
         android:paddingBottom="50dp"
+        android:inputType="number"
         />
 
     <Button
         android:id="@+id/add_button"
-        android:onClick="onClickAddButton"
+        android:onClick="onCalcButtonClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_button"
@@ -37,7 +39,7 @@
 
     <Button
         android:id="@+id/subtract_button"
-        android:onClick="onClickSubtractButton"
+        android:onClick="onCalcButtonClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/subtract_button"
@@ -45,15 +47,23 @@
 
     <Button
         android:id="@+id/multiply_button"
-        android:onClick="onClickMultiplyButton"
+        android:onClick="onCalcButtonClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/multiply_button"
         />
 
     <Button
+        android:id="@+id/divide_button"
+        android:onClick="onClickDivideButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/divide_button"
+        />
+
+    <Button
         android:id="@+id/power_button"
-        android:onClick="onClickPowerButton"
+        android:onClick="onCalcButtonClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/power"

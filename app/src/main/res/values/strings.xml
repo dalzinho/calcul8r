@@ -6,4 +6,6 @@
     <string name="subtract_button">Subtract</string>
     <string name="multiply_button">multiply</string>
     <string name="power">Power</string>
+    <string name="divide_button">Divide</string>
+    <string name="outcome_label">The answer, monkey-brain.</string>
 </resources>

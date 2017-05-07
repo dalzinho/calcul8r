@@ -5,22 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class OutcomeActivity extends AppCompatActivity {
+public class DoubleOutcomeActivity extends AppCompatActivity {
 
     TextView outcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_outcome);
+        setContentView(R.layout.activity_double_outcome);
 
         outcome = (TextView)findViewById(R.id.calculation_outcome_view);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        int answer = extras.getInt("int_outcome");
+        double answer = extras.getDouble("double_outcome");
 
-        outcome.setText(Integer.toString(answer));
+        outcome.setText(Double.toString(answer));
     }
-
 }

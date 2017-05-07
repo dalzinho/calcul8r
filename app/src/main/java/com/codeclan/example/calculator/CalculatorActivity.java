@@ -13,7 +13,11 @@ public class CalculatorActivity extends AppCompatActivity {
     private EditText firstNumber;
     private EditText secondNumber;
     private Button addButton;
-    private Calculator calculator;
+    private Button subtractButton;
+    private Button multiplyButton;
+    private Button divideButton;
+    private Button powerButton;
+    private Calculator calc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,51 +27,50 @@ public class CalculatorActivity extends AppCompatActivity {
         firstNumber = (EditText)findViewById(R.id.first_number);
         secondNumber = (EditText)findViewById(R.id.second_number);
         addButton = (Button) findViewById(R.id.add_button);
-        calculator = new Calculator();
+        subtractButton = (Button) findViewById(R.id.subtract_button);
+        multiplyButton = (Button) findViewById(R.id.multiply_button);
+        divideButton = (Button) findViewById(R.id.divide_button);
+        powerButton = (Button) findViewById(R.id.power_button);
+        calc = new Calculator();
     }
 
-    public void onClickAddButton(View button){
-        int first = Integer.parseInt(firstNumber.getText().toString());
-        int second = Integer.parseInt(secondNumber.getText().toString());
+    public void onCalcButtonClick(View view) {
+        int num1 = Integer.parseInt(firstNumber.getText().toString());
+        int num2 = Integer.parseInt(secondNumber.getText().toString());
+        int outcome = 0;
+
+        switch (view.getId()) {
+            case R.id.add_button:
+                outcome = calc.add(num1, num2);
+                break;
+            case R.id.subtract_button:
+                outcome = calc.subtract(num1, num2);
+                break;
+            case R.id.multiply_button:
+                outcome = calc.multiply(num1, num2);
+                break;
+            case R.id.power_button:
+                outcome = calc.findPower(num1, num2);
+                break;
+        }
 
         Intent intent = new Intent(this, OutcomeActivity.class);
-        int outcome = calculator.add(first, second);
-        intent.putExtra("add_outcome", (int)outcome);
+        intent.putExtra("int_outcome", outcome);
 
         startActivity(intent);
     }
 
-    public void onClickSubtractButton(View button){
-        int first = Integer.parseInt(firstNumber.getText().toString());
+    public void onClickDivideButton(View button){
+        Double first = Double.valueOf(firstNumber.getText().toString());
         int second = Integer.parseInt(secondNumber.getText().toString());
 
-        Intent intent = new Intent(this, OutcomeActivity.class);
-        int outcome = calculator.subtract(first, second);
-        intent.putExtra("add_outcome", outcome);
+        Intent intent = new Intent(this, DoubleOutcomeActivity.class);
+        Double outcome = calc.divide(first, second);
+        intent.putExtra("double_outcome", outcome);
 
         startActivity(intent);
-    }
 
-    public void onClickMultiplyButton(View button){
-        int first = Integer.parseInt(firstNumber.getText().toString());
-        int second = Integer.parseInt(secondNumber.getText().toString());
 
-        Intent intent = new Intent(this, OutcomeActivity.class);
-        int outcome = calculator.multiply(first, second);
-        intent.putExtra("add_outcome", outcome);
-
-        startActivity(intent);
-    }
-
-    public void onClickPowerButton(View button){
-        int first = Integer.parseInt(firstNumber.getText().toString());
-        int second = Integer.parseInt(secondNumber.getText().toString());
-
-        Intent intent = new Intent(this, OutcomeActivity.class);
-        int outcome = calculator.findPower(first, second);
-        intent.putExtra("add_outcome", outcome);
-
-        startActivity(intent);
     }
 
 }
